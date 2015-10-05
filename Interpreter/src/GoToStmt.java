@@ -1,0 +1,16 @@
+//GoTo statement class
+//Can jump to another line
+public class GoToStmt extends Statement{
+	private int nextLine;
+	
+	public GoToStmt(TokenScanner scanner) {
+		nextLine = Integer.parseInt(scanner.nextToken());
+		if (scanner.hasMoreTokens()) {
+			System.out.println("Extraneous token " + scanner.nextToken());
+		}
+	}
+	
+	public void execute(EvaluationContext context) {
+		context.setCurrentLine(nextLine);
+	}
+}

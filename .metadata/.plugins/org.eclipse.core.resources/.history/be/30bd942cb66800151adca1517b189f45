@@ -1,0 +1,26 @@
+
+public class IdentifierExp {
+	
+	private String name;
+	
+	public IdentifierExp(String name) {
+		this.name = name;
+	}
+	
+	public int eval(EvaluationContext contex) {
+		
+	}
+	
+	public String toString() {
+		
+	}
+	
+	public ExpressionType getType() {
+		
+	}
+	
+	public String getIdentifierName() {
+		
+	}
+
+}

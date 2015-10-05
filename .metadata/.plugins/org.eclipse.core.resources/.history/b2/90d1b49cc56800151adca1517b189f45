@@ -1,0 +1,67 @@
+
+public class Program {
+
+	private SourceLine header;
+	private SourceLine cursor;
+	
+	public void clear() {
+		
+	}
+	
+	public void addSourceLine(int lineNumber, String line) {
+		
+	}
+	
+	public void removeSourceLine(int lineNumber) {
+		
+	}
+	
+	public String getSourceLine(int lineNumber) {
+		
+	}
+	
+	public void setParsedStatement(int lineNumber, Statement stmt) {
+		
+	}
+	
+	public Statement getParsedStatement(int lineNumber) {
+		
+	}
+	
+	public int getFirstLineNumber() {
+		
+	}
+	
+	public int getNextLineNumber(int lineNumber) {
+		
+	}
+	
+	private void recInsertSorted(SourceLine program, int lineNumber, String source) {
+		
+	}
+	
+	private void recDeleteFromList(SourceLine program, int lineNumber) {
+		
+	}
+	
+	private void positionCursor(int lineNumber) {
+		
+	}
+	
+	private void initProgram() {
+		
+	}
+	
+	private void deleteProgram() {
+		
+	}
+	
+	static class SourceLine {
+		int number;
+		String source;
+		Statement lineStmt;
+		SourceLine next;
+	}
+	
+	
+}

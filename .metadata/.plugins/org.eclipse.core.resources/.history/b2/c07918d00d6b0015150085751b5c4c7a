@@ -1,0 +1,86 @@
+//Parser class
+//to parse every statement
+public class Parser {
+	public Expression parseExp(TokenScanner scanner) {
+		Expression exp = readE(scanner, 0);
+		if (scanner.hasMoreTokens()) {
+			System.out.println("Unexpected token");
+		}
+		return exp;
+	}
+	
+	public Expression readE(TokenScanner scanner, int prec) {
+		Expression exp = readT(scanner);
+		String token = null;
+		while (true) {
+			token = scanner.nextToken();
+			int tprec = precedence(token);
+			if (tprec <= prec) {
+				break;
+			}
+			Expression rhs = readE(scanner, tprec);
+			exp = new CompoundExp(token, exp, rhs);
+		}
+		if (token != null) {
+			scanner.saveToken(token);
+		}
+		return exp;
+	}
+	
+	public Expression readT(TokenScanner scanner) {
+		String token = scanner.nextToken();
+		if (token.charAt(0) >= 'A' && token.charAt(0) <= 'Z' || token.charAt(0) >= 'a' && token.charAt(0) <= 'z') {
+			return new IdentifierExp(token);
+		} else if(token.charAt(0) >= '0' && token.charAt(0) <= '9') {
+			return new ConstantExp(Integer.parseInt(token));
+		}
+		if (!token.equals("(")) { 
+			System.out.println("Unexpected token");
+		}
+		Expression exp = readE(scanner, 0);
+		if (!scanner.nextToken().equals(")")) {
+			System.out.println("Unbalanced parentheses");
+		}
+		return exp;
+	}
+	
+	public int precedence(String token) {
+		if (token == null) {
+			return 0;
+		}
+		if (token.equals("+") || token.equals("-")) {
+			return 2;
+		}
+		if (token.equals("*") || token.equals("/")) {
+			return 3;
+		}
+		return 0;
+	}
+	
+	public Statement parseStatement(TokenScanner scanner) {
+		String token = scanner.nextToken();
+		if (token.equals("PRINT")) {
+			return new PrintStmt(scanner);
+		}
+		if (token.equals("LET")) {
+			return new LetStmt(scanner);
+		}
+		if (token.equals("INPUT")) {
+			return new InputStmt(scanner);
+		}
+		if (token.equals("GOTO")) {
+			return new GoToStmt(scanner);
+		}
+		if (token.equals("IF")) {
+			return new IfStmt(scanner);
+		}
+		if (token.equals("END")) {
+			return new EndStmt(scanner);
+		}
+		if (token.equals("REM")) {
+			return new RemStmt(scanner);
+		}
+		System.out.println("Not a legal statement");
+		return null;
+	}
+}

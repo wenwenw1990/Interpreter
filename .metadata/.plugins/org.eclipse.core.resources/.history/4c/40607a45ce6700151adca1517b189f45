@@ -1,0 +1,19 @@
+
+public class TokenScanner {
+
+	private String[] array;
+	private int index;
+	public TokenScanner(String s) {
+		array = s.split(" ");
+		index = 0;
+	}
+	
+	public boolean hasMoreTokens() {
+		return index < array.length;
+	}
+	
+	public String nextToken() {
+		String result = array[index++];
+		return result;
+	}
+}

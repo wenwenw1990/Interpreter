@@ -1,0 +1,47 @@
+import java.io.Console;
+
+public class Basic {
+
+	public void processLine(String line, Program program, EvaluationContext context) {
+		
+	}
+	
+	public void welcomeAnnouncement() {
+		
+	}
+	
+	public void quitCmd() {
+		
+	}
+	
+	public void helpCmd() {
+		
+	}
+	
+	public  void listCmd(Program program) {
+		
+	}
+	
+	public void clearCmd(Program program) {
+		
+	}
+	
+	public void editPrgCmd(Program program, int lineNumber) {
+		
+	}
+	
+	public void runCmd(Program program, EvaluationContext context) {
+		
+	}
+	
+	public static void main(String[] args) {
+		Basic basic = new Basic();
+		EvaluationContext context = new EvaluationContext();
+		Program program = new Program();
+		Console con = System.console();
+		while (true) {
+			basic.processLine(con.readLine(), program, context);
+		}
+	}
+	
+}

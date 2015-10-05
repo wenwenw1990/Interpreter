@@ -1,0 +1,30 @@
+import java.util.Deque;
+import java.util.LinkedList;
+
+public class TokenScanner {
+
+	private String[] array;
+	private Deque<String> stack = new LinkedList<String>();
+	public TokenScanner(String s) {
+		array = s.split(" ");
+		System.out.println(array.length);
+		System.out.println(array[0]);
+		for (String token : array) {
+			stack.offerFirst(token);
+		}
+		System.out.println(stack.size());
+		System.out.println(stack.peekLast() + " " + stack.peekFirst());
+	}
+	
+	public boolean hasMoreTokens() {
+		return !stack.isEmpty();
+	}
+	
+	public String nextToken() {
+		return stack.pollLast();
+	}
+	
+	public void saveToken(String token) {
+		stack.offerLast(token);
+	}
+}
