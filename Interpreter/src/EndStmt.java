@@ -1,4 +1,4 @@
-
+//End Statement class
 public class EndStmt extends Statement{
 
 	public EndStmt(TokenScanner scanner) {

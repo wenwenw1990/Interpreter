@@ -1,4 +1,4 @@
-
+//CompundExpression class for expressions like x1 + x2ß
 public class CompoundExp extends Expression{
 	
 	private String op;

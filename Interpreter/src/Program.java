@@ -75,6 +75,7 @@ public class Program {
 		}
 	}
 	
+	//Insert a new statement helper function
 	private void recInsertSorted(SourceLine program, int lineNumber, String source) {
 		if (program == null || lineNumber < program.number){
 			// Create a new line
@@ -94,6 +95,7 @@ public class Program {
 		}
 	}
 	
+	//Delete a statement helper function
 	private void recDeleteFromList(SourceLine program, int lineNumber) {
 		if (program != null) {
 			if (program.number == lineNumber) {

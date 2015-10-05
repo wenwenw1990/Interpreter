@@ -1,4 +1,5 @@
-
+//If statement class
+//Implement condition operation
 public class IfStmt extends Statement{
 	private Expression exp1;
 	private Expression exp2;
